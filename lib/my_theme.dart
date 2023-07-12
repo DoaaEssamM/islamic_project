@@ -22,6 +22,11 @@ class MyThemeData {
         color: colorGold,
       ),
     ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: colorGold,
+      selectedItemColor: colorBlack,
+      unselectedItemColor: Colors.white
+    )
   );
 
   static ThemeData darkTheme = ThemeData(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamic/home_screen.dart';
+import 'package:islamic/home_screen/home.dart';
 import 'package:islamic/my_theme.dart';
 
 void main() {
