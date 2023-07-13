@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamic/home_screen/ahadeth.dart';
-import 'package:islamic/home_screen/quran.dart';
+import 'package:islamic/quran_tab/quran.dart';
 import 'package:islamic/home_screen/radio.dart';
 import 'package:islamic/home_screen/sebha.dart';
 import 'package:islamic/my_theme.dart';
@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int currentIndex =0;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,30 +33,51 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
-            currentIndex:currentIndex,
-            onTap: (index){
+            currentIndex: currentIndex,
+            onTap: (index) {
               currentIndex = index;
-              setState(() {
-
-              });
+              setState(() {});
             },
             type: BottomNavigationBarType.fixed,
             items: [
-            BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/quran.png'),size: 30,), label: 'quran', ),
-            BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/sebha.png'),size: 30), label: 'sebha', ),
-            BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/radio.png'),size: 30,), label: 'radio',),
-            BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/ahadeth.png'),size: 30,), label: 'ahadeth',),
-          ],),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage('assets/images/quran.png'),
+                  size: 30,
+                ),
+                label: 'quran',
+              ),
+              BottomNavigationBarItem(
+                icon:
+                    ImageIcon(AssetImage('assets/images/sebha.png'), size: 30),
+                label: 'sebha',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage('assets/images/radio.png'),
+                  size: 30,
+                ),
+                label: 'radio',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage('assets/images/ahadeth.png'),
+                  size: 30,
+                ),
+                label: 'ahadeth',
+              ),
+            ],
+          ),
           body: tabs[currentIndex],
         ),
       ],
     );
   }
-  List<Widget> tabs=[
-    QuranTab(),
-    RadioTab(),
-    SebhaTab(),
-    AhadethTab(),
 
+  List<Widget> tabs = [
+    QuranTab(),
+    SebhaTab(),
+    RadioTab(),
+    AhadethTab(),
   ];
 }
