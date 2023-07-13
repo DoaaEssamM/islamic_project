@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamic/hadeth_details/hadeth_details.dart';
 import 'package:islamic/my_theme.dart';
 
 class AhadethTab extends StatefulWidget {
@@ -44,13 +45,19 @@ class _AhadethTabState extends State<AhadethTab> {
                         ),
                     itemCount: Ahadeth.length,
                     itemBuilder: (context, index) {
-                      return Text(
-                        Ahadeth[index].title,
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .subtitle1
-                            ?.copyWith(color: MyThemeData.colorBlack),
+                      return InkWell(
+                        onTap: (){
+                          Navigator.pushNamed(context, HadethDetailsScreen.routeName,
+                          arguments: Ahadeth[index]);
+                        },
+                        child: Text(
+                          Ahadeth[index].title,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle1
+                              ?.copyWith(color: MyThemeData.colorBlack),
+                        ),
                       );
                     }),
               )
