@@ -16,7 +16,7 @@ SuraNameItem(this.name, this.index);
       },
       child: Text(name,
         textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.subtitle1?.copyWith(color: MyThemeData.colorBlack),),
+        style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme==ThemeMode.light? MyThemeData.colorBlack:MyThemeData.colorWhite),),
     );
   }
 }

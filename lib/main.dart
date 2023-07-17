@@ -3,13 +3,17 @@ import 'package:islamic/hadeth_details/hadeth_details.dart';
 import 'package:islamic/home_screen/home.dart';
 import 'package:islamic/my_theme.dart';
 import 'package:islamic/provider/my_provider.dart';
+import 'package:islamic/shared_prefs.dart';
 import 'package:islamic/sura_details/sura_details.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-void main() {
+import 'package:shared_preferences/shared_preferences.dart';
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPrefs.prefs=await SharedPreferences.getInstance();
   runApp(ChangeNotifierProvider(
-    create: (context)=>MyProvider(),
+    create: (context)=>MyProvider()..initializeSharedPrefs()..getThemeAndLanguage(),
       child: MyApp()));
 }
 class MyApp extends StatelessWidget {

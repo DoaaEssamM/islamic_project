@@ -3,6 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:islamic/hadeth_details/hadeth_details.dart';
 import 'package:islamic/my_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/my_provider.dart';
 
 class AhadethTab extends StatefulWidget {
   @override
@@ -14,6 +17,7 @@ class _AhadethTabState extends State<AhadethTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     if (Ahadeth.isEmpty) {
       loadHadethFile();
     }
@@ -27,10 +31,8 @@ class _AhadethTabState extends State<AhadethTab> {
         ),
         Text(
     AppLocalizations.of(context)!.ahadeth,
-          style:
-          Theme.of(context).textTheme.subtitle1?.copyWith(
-            color: MyThemeData.colorBlack,
-          ),
+          style: Theme.of(context).textTheme.subtitle1?.copyWith(
+              color:provider.mode==ThemeMode.light? MyThemeData.colorBlack: MyThemeData.colorWhite),
           textAlign: TextAlign.center,
         ),
         Divider(
@@ -54,10 +56,8 @@ class _AhadethTabState extends State<AhadethTab> {
                         child: Text(
                           Ahadeth[index].title,
                           textAlign: TextAlign.center,
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle1
-                              ?.copyWith(color: MyThemeData.colorBlack),
+                            style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                                color:provider.mode==ThemeMode.light? MyThemeData.colorBlack: MyThemeData.colorWhite),
                         ),
                       );
                     }),
