@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class SebhaTab extends StatelessWidget {
   const SebhaTab({Key? key}) : super(key: key);
 
@@ -36,7 +36,7 @@ class SebhaTab extends StatelessWidget {
             ),
           ),
           Text(
-              'عدد التسبيحات'
+              AppLocalizations.of(context)!.tasbehat
           )
         ],
       ),

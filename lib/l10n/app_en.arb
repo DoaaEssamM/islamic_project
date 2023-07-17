@@ -1,5 +1,12 @@
 {
   "appTitle": "Islami",
-  "sura_name": "Sura_Name",
-  "ahadeth": "Ahadeth"
+  "sura_name": "Name of the surah",
+  "ahadeth": "Hadiths",
+  "tasbehat": "Number of praises",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark"
 }

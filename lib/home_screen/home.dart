@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:islamic/home_screen/ahadeth.dart';
+import 'package:islamic/provider/my_provider.dart';
 import 'package:islamic/quran_tab/quran.dart';
 import 'package:islamic/home_screen/radio.dart';
 import 'package:islamic/home_screen/sebha.dart';
 import 'package:islamic/my_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import '../settings/settings.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -18,10 +22,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var providr = Provider.of<MyProvider>(context);
     return Stack(
       children: [
         Image.asset(
-          'assets/images/main_background.png',
+          providr.getBgImage(),
           width: double.infinity,
           fit: BoxFit.fitWidth,
         ),
@@ -66,6 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   size: 30,
                 ),
                 label: 'ahadeth',
+              ),BottomNavigationBarItem(
+                icon: Icon(Icons.settings, size: 30,),
+                label: 'Settings',
               ),
             ],
           ),
@@ -80,5 +88,6 @@ class _HomeScreenState extends State<HomeScreen> {
     SebhaTab(),
     RadioTab(),
     AhadethTab(),
+    SettingsTab(),
   ];
 }
